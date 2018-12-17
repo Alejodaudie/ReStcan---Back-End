@@ -5,7 +5,7 @@ require('dotenv').config();
 
 const mongoose = require('mongoose');
 const restaurantsData = require( '../data/restaurants')
-const Restaurants = require('../models/restaurants');
+const Restaurant = require('../models/restaurants');
 
 
 mongoose.connect(process.env.MONGODB_URI, {
@@ -13,8 +13,11 @@ mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   reconnectTries: Number.MAX_VALUE
 })
+.then(() => {
+  Restaurant.deleteMany({});
+})
 .then (() => {
-  return Restaurants.insertMany(restaurantsData)
+  return Restaurant.insertMany(restaurantsData)
   .then((results) => {
     console.log(results.length)
     

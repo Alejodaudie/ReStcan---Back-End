@@ -4,9 +4,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const ObjectId = Schema.Types.ObjectId;
-
-const restaurantsSchema = new Schema({
+const restaurantSchema = new Schema({
   name: {
     type: String,
     required: true
@@ -21,6 +19,6 @@ const restaurantsSchema = new Schema({
   }
 });
 
-const Restaurants = mongoose.model('Restaurants', restaurantsSchema);
+const Restaurant = mongoose.model('Restaurant', restaurantSchema);
 
-module.exports = Restaurants;
+module.exports = Restaurant;

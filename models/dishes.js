@@ -2,6 +2,7 @@
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const ObjectId = Schema.Types.ObjectId;
 
 const dishSchema = new Schema({
   category: {
@@ -21,8 +22,8 @@ const dishSchema = new Schema({
     required: true,
   },
   restaurantID: {
-    type: String,
-    required: false,
+    type: ObjectId,
+    ref: 'Restaurant',
   },
 });
 

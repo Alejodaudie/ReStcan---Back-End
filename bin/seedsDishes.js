@@ -5,28 +5,29 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const dishesData = require( '../data/dishes')
 const Dish = require('../models/dishes');
-import Restaurant = from '../data/restaurants
+const Restaurant = require('../models/restaurants');
 
 mongoose.connect(process.env.MONGODB_URI, {
   keepAlive: true,
   useNewUrlParser: true,
   reconnectTries: Number.MAX_VALUE
 })
+.then(() => {
+  Dish.deleteMany({});
+})
 .then (() => {
-  Restaurant.find()
-  .then(restaurant =>{
+  Restaurant.findOne()
+  .then(restaurant => {
 
-//1.obtener restaurant id from restaurant object
-//2. insert restaurant id en dishes
-
+    dishesData.forEach((dish) => {
+      dish.restaurantID = restaurant._id;
+    })
     return Dish.insertMany(dishesData)
-  .then((results) => {
+    .then((results) => {
     console.log(results.length)
     
+    })
   })
-  })
-  .then(error);
-  
   .then(()=> {
     mongoose.connection.close();
   })
@@ -34,10 +35,4 @@ mongoose.connect(process.env.MONGODB_URI, {
     console.error(error);
   });
 })
-
-
-
-
-
-// dishes insert (data)
 
