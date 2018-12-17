@@ -18,11 +18,6 @@ const restaurantsSchema = new Schema({
   imageUrl: {
     type: String,
     required: true
-  },
-  owner: {
-    // type: String
-    type: ObjectId,
-    ref: 'Dishes'
   }
 });
 

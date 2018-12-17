@@ -3,34 +3,29 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const dishesSchema = new Schema({
+const dishSchema = new Schema({
   category: {
     type: String,
     required: true,
-    unique: true
   },
   description: {
     type: String,
     required: true,
-    unique: true
   },
   quantity: {
     type: String,
     required: true,
-    unique: true
   },
   price: {
     type: String,
     required: true,
-    unique: true
   },
   restaurantID: {
     type: String,
-    required: true,
-    unique: true
+    required: false,
   },
 });
 
-const Dishes = mongoose.model('Dishes', dishesSchema);
+const Dish = mongoose.model('Dish', dishSchema);
 
-module.exports = Dishes;
+module.exports = Dish;

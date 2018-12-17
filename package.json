@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "nodemon ./bin/www"
+    "dev": "nodemon ./bin/www",
+    "seed-dishes": "node ./bin/seedsDishes",
+    "seed-restaurants": "node ./bin/seedsRestaurant"
   },
   "engines": {
     "node": "10.11.0",
