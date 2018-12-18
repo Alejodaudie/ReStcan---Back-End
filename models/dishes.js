@@ -5,6 +5,10 @@ const Schema = mongoose.Schema;
 const ObjectId = Schema.Types.ObjectId;
 
 const dishSchema = new Schema({
+  subcategory: {
+    type: String,
+    required: true,
+  },
   category: {
     type: String,
     required: true,
