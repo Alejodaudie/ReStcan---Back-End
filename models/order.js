@@ -5,12 +5,16 @@ const Schema = mongoose.Schema;
 const ObjectId = Schema.Types.ObjectId;
 
 const orderSchema = new Schema({
-  dishID: {
-    type: ObjectId,
-    ref: 'Dish',
-  },
+  dishes: [{
+    dish_id: { 
+      type: ObjectId,
+      ref: 'dish',
+    },
+    qty: Number
+  }],
 });
 
 const Order = mongoose.model('Order', orderSchema);
 
 module.exports = Order;
+

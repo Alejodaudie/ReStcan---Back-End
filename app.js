@@ -67,7 +67,7 @@ app.use((req, res, next) => {
 
 app.use((err, req, res, next) => {
   // always log the error
-  console.error('ERROR', req.method, req.path, err);
+  console.error('ERROR', req.method, req.path, err.message);
 
   // only render if the error ocurred before sending the response
   if (!res.headersSent) {
